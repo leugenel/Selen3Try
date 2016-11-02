@@ -12,3 +12,4 @@ target/
 #SVN
 .svn/
 .metadata/
+geckodriver
