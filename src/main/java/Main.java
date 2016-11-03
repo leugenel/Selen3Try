@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,19 +12,12 @@ import java.io.File;
 
 public class Main {
 
-    static String driverPath = "/Users/eugenel/Documents/Code/Selen3Try/";
     static public WebDriver driver;
 
     public static void main(String[] args) {
 
+        driver = (new Driver(Driver.Browser.SAFARI)).getDriver();
 
-        System.out.println("launching firefox browser");
-        System.setProperty("webdriver.gecko.driver", driverPath+"geckodriver");
-
-        File pathToBinary = new File("/Applications/Firefox49.app/Contents/MacOS/firefox-bin");
-        FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
-        FirefoxProfile firefoxProfile = new FirefoxProfile();
-        driver = new FirefoxDriver(ffBinary,firefoxProfile);
         driver.navigate().to("http://www.epochconverter.com/");
 
         waitForLoad(driver);
@@ -57,8 +51,6 @@ public class Main {
         epoch.getTimeStamp();
 
         System.out.println("The timestamp of 01/01/2016: " + epoch.getTimeStamp());
-
-
 
         if(driver!=null) {
             driver.close();
