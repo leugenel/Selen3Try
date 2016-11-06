@@ -22,6 +22,8 @@ public class Main {
 
         waitForLoad(driver);
 
+        driver.manage().window().maximize();
+
         Epoch epoch = new Epoch(driver);
 
         //Read the epoch time
@@ -60,7 +62,7 @@ public class Main {
     }
 
     static void  waitForLoad(WebDriver driver) {
-        new WebDriverWait(driver, 30).until((ExpectedCondition<Boolean>) wd ->
+        new WebDriverWait(driver, 50).until((ExpectedCondition<Boolean>) wd ->
                 ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
     }
 }
