@@ -50,7 +50,7 @@ public class Main {
 
         epoch.setDate();
 
-        epoch.getTimeStamp();
+        //epoch.getTimeStamp();
 
         System.out.println("The timestamp of 01/01/2016: " + epoch.getTimeStamp());
 
